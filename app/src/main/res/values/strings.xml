@@ -15,4 +15,6 @@
     <string name="hint_input">Input</string>
     <string name="btn_run_operation">Run operation</string>
     <string name="btn_run_bg_service">Run background service</string>
+    <string name="btn_listen">Listen</string>
+    <string name="btn_enough">Enough!</string>
 </resources>
