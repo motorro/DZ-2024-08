@@ -12,4 +12,5 @@
     <string name="option_3">Option3</string>
     <string name="btn_static_menu">Static menu</string>
     <string name="btn_dynamic_menu">Dynamic menu</string>
+    <string name="hint_input">Input</string>
 </resources>

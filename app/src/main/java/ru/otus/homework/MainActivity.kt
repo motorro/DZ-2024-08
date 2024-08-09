@@ -24,6 +24,7 @@ class MainActivity : AppCompatActivity() {
             buttonStatic.setOnClickListener { v -> showStaticMenu(v, R.menu.menu_static) }
             buttonDynamic.setOnClickListener { v -> showDynamicMenu(v, R.menu.menu_static) }
         }
+        setupAutocomplete()
     }
 
     private fun showStaticMenu(v: View, @MenuRes menuRes: Int) {
@@ -63,6 +64,16 @@ class MainActivity : AppCompatActivity() {
         }
         // Show the popup menu.
         listPopupWindow.show()
+    }
+
+    private fun setupAutocomplete() {
+        val items = listOf(
+            getString(R.string.option_1),
+            getString(R.string.option_2),
+            getString(R.string.option_3)
+        )
+        val adapter = ArrayAdapter(this, R.layout.item_menu, items)
+        binding.textInputEditText.setAdapter(adapter)
     }
 
     companion object {
