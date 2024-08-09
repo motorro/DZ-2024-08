@@ -7,8 +7,11 @@ import android.view.View
 import android.widget.ArrayAdapter
 import androidx.annotation.MenuRes
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.ListPopupWindow
 import androidx.appcompat.widget.PopupMenu
+import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
 import ru.otus.homework.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -25,6 +28,7 @@ class MainActivity : AppCompatActivity() {
             buttonDynamic.setOnClickListener { v -> showDynamicMenu(v, R.menu.menu_static) }
         }
         setupAutocomplete()
+        setupRecyclerView()
     }
 
     private fun showStaticMenu(v: View, @MenuRes menuRes: Int) {
@@ -74,6 +78,29 @@ class MainActivity : AppCompatActivity() {
         )
         val adapter = ArrayAdapter(this, R.layout.item_menu, items)
         binding.textInputEditText.setAdapter(adapter)
+    }
+
+    private fun setupRecyclerView() {
+        val adapter = SomeItemAdapter()
+        val dashLine = requireNotNull(AppCompatResources.getDrawable(
+            this@MainActivity,
+            R.drawable.divider)
+        )
+        val decoration = DividerItemDecoration(this@MainActivity, VERTICAL).apply {
+            setDrawable(dashLine)
+        }
+        binding.recyclerView.let {
+            it.setHasFixedSize(true)
+            it.adapter = adapter
+            it.addItemDecoration(decoration)
+        }
+        adapter.submitList(
+            listOf(
+                SomeItem("Item 1"),
+                SomeItem("Item 2"),
+                SomeItem("Item 3")
+            )
+        )
     }
 
     companion object {
