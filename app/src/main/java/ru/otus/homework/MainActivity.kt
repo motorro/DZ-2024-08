@@ -37,6 +37,9 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
             }
+            buttonBgService.setOnClickListener {
+                startService(SomeService.createIntent(this@MainActivity))
+            }
         }
         setupAutocomplete()
         setupRecyclerView()

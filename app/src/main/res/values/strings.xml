@@ -14,4 +14,5 @@
     <string name="btn_dynamic_menu">Dynamic menu</string>
     <string name="hint_input">Input</string>
     <string name="btn_run_operation">Run operation</string>
+    <string name="btn_run_bg_service">Run background service</string>
 </resources>
