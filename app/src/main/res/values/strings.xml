@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">DZ-2024-08</string>
+    <string name="edit">Edit</string>
+    <string name="content_description_edit">Edit</string>
+    <string name="favorite">Favorite</string>
+    <string name="content_description_favorite">Favorite</string>
+    <string name="more">More</string>
+    <string name="content_description_more">More</string>
 </resources>
