@@ -10,8 +10,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.content.res.AppCompatResources
 import androidx.appcompat.widget.ListPopupWindow
 import androidx.appcompat.widget.PopupMenu
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.lifecycleScope
+import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.DividerItemDecoration.VERTICAL
+import kotlinx.coroutines.launch
 import ru.otus.homework.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -26,6 +30,13 @@ class MainActivity : AppCompatActivity() {
         with(binding) {
             buttonStatic.setOnClickListener { v -> showStaticMenu(v, R.menu.menu_static) }
             buttonDynamic.setOnClickListener { v -> showDynamicMenu(v, R.menu.menu_static) }
+            buttonOperation.setOnClickListener {
+                lifecycleScope.launch {
+                    repeatOnLifecycle(Lifecycle.State.STARTED) {
+                        someOperation()
+                    }
+                }
+            }
         }
         setupAutocomplete()
         setupRecyclerView()
@@ -101,6 +112,11 @@ class MainActivity : AppCompatActivity() {
                 SomeItem("Item 3")
             )
         )
+    }
+
+    override fun onStop() {
+        super.onStop()
+        Log.i(TAG,"Activity stopped!")
     }
 
     companion object {
