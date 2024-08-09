@@ -6,4 +6,9 @@
     <string name="content_description_favorite">Favorite</string>
     <string name="more">More</string>
     <string name="content_description_more">More</string>
+
+    <string name="option_1">Option1</string>
+    <string name="option_2">Option2</string>
+    <string name="option_3">Option3</string>
+    <string name="btn_static_menu">Static menu</string>
 </resources>
