@@ -7,3 +7,5 @@
 4. Static vs companion object
 5. Coroutines or Service
 6. Service types
+
+;alsdkhjf;laskdjhf;laskjh
